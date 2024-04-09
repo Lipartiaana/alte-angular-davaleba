@@ -1,0 +1,30 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+
+  input {
+    width: 300px;
+    height: 30px;
+  }
+
+  button {
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: green;
+    &:hover {
+      background-color: #ccc;
+    }
+  }
+
+  .address {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+}

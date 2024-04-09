@@ -1,0 +1,29 @@
+<h1>Applicants</h1>
+
+<table>
+  <tr>
+    <td>N</td>
+    <td>First name</td>
+    <td>Last Name</td>
+    <td>Birth date</td>
+    <td>Phone Number</td>
+    <td>Edit</td>
+    <td>Delete</td>
+  </tr>
+
+  @for(user of users$ | async; track user.id){
+  <tr>
+    <td>{{ user.id }}</td>
+    <td>{{ user.firstName }}</td>
+    <td>{{ user.lastName }}</td>
+    <td>{{ user.birthDate }}</td>
+    <td>{{ user.phone }}</td>
+    <td>
+      <button class="edit" [routerLink]="['/create', user.id]">Edit</button>
+    </td>
+    <td><button class="delete" (click)="delete(user.id)">Delete</button></td>
+  </tr>
+  }
+</table>
+
+<button class="create" routerLink="/create">Send application</button>

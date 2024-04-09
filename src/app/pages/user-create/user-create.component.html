@@ -1,0 +1,34 @@
+@if (user$ | async; as user){
+<h1>Edit application {{ user?.firstName }}</h1>
+} @else {
+<h1>Create application</h1>
+}
+
+<form [formGroup]="form">
+  <input
+    type="text"
+    formControlName="firstName"
+    placeholder="First name"
+    name="firstName"
+  />
+  <input
+    type="text"
+    formControlName="lastName"
+    placeholder="Last name"
+    name="lastName"
+  />
+  <input
+    type="date"
+    formControlName="birthDate"
+    placeholder="Birth date"
+    name="birthDate"
+  />
+  <input
+    type="text"
+    formControlName="phone"
+    placeholder="Phone number"
+    name="phone"
+  />
+
+  <button (click)="submit()">Submit</button>
+</form>
