@@ -15,10 +15,6 @@ export class UsersComponent {
 
   users$ = this.userService.getUsers();
 
-  edit(id: string) {
-    console.log(`Edit user ${id}`);
-  }
-
   delete(id: string) {
     this.userService.deleteUser(id).subscribe((res) => {
       this.users$ = this.userService.getUsers();

@@ -4,15 +4,47 @@
       "id": "1",
       "firstName": "John",
       "lastName": "Doe 1",
-      "birthDate": "2024-04-02",
-      "phone": "555123456"
+      "birthDate": "1998-04-02",
+      "phone": "555123456",
+      "address": {
+        "city": "Tbilisi",
+        "street": "asdasd"
+      },
+      "skills": [
+        {
+          "skill": "HTML"
+        }
+      ],
+      "workExperience": [
+        {
+          "place": "asdasdasd",
+          "position": "asdasdaasd",
+          "years": "1"
+        }
+      ]
     },
     {
       "id": "2",
       "firstName": "John",
       "lastName": "Doe 2",
       "birthDate": "1990-05-15",
-      "phone": "123456789"
+      "phone": "123456789",
+      "address": {
+        "city": "Tbilisi",
+        "street": "asdasd"
+      },
+      "skills": [
+        {
+          "skill": "CSS"
+        }
+      ],
+      "workExperience": [
+        {
+          "place": "asdasd",
+          "position": "Front-end developer",
+          "years": "2"
+        }
+      ]
     }
   ]
 }

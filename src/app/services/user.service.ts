@@ -22,7 +22,7 @@ export class UserService {
     return this.http.get<User>(`${this.apiUrl}/users/${id}`);
   }
 
-  createUser(user: Partial<User>): Observable<User> {
+  createUser(user: User): Observable<User> {
     return this.http.post<User>(`${this.apiUrl}/users`, user);
   }
 

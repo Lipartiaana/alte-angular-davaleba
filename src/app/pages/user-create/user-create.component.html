@@ -5,30 +5,141 @@
 }
 
 <form [formGroup]="form">
+  <label for="firstName">First Name</label>
   <input
     type="text"
     formControlName="firstName"
     placeholder="First name"
-    name="firstName"
+    id="firstName"
   />
+  <div
+    class="error"
+    *ngIf="
+      form.get('firstName')?.hasError('required') &&
+      form.get('firstName')?.touched
+    "
+  >
+    First Name is required
+  </div>
+
+  <label for="lasttName">Last Name</label>
   <input
     type="text"
     formControlName="lastName"
     placeholder="Last name"
-    name="lastName"
+    id="lastName"
   />
+  <div
+    class="error"
+    *ngIf="
+      form.get('lastName')?.hasError('required') &&
+      form.get('lastName')?.touched
+    "
+  >
+    Last Name is required
+  </div>
+
+  <label for="birthDate">Birth date</label>
   <input
     type="date"
     formControlName="birthDate"
     placeholder="Birth date"
-    name="birthDate"
+    id="birthDate"
   />
+  <div
+    class="error"
+    *ngIf="
+      form.get('birthDate')?.hasError('required') &&
+      form.get('birthDate')?.touched
+    "
+  >
+    Birth date is required
+  </div>
+
+  <label for="phone">Phone Number</label>
   <input
     type="text"
     formControlName="phone"
     placeholder="Phone number"
-    name="phone"
+    id="phone"
   />
+  <div
+    class="error"
+    *ngIf="
+      form.get('phone')?.hasError('required') && form.get('phone')?.touched
+    "
+  >
+    Phone number is required
+  </div>
 
-  <button (click)="submit()">Submit</button>
+  <div formGroupName="address" class="form-group">
+    <label for="city">City</label>
+    <input type="text" formControlName="city" id="city" placeholder="city" />
+    <label for="street">Address</label>
+    <input
+      type="text"
+      formControlName="street"
+      id="address"
+      placeholder="address"
+    />
+  </div>
+
+  <hr width="100%" />
+
+  <label for="skills">Skills</label>
+  <button (click)="addSkill()">Add Skill</button>
+  <div
+    *ngFor="let control of skills.controls; let i = index"
+    formArrayName="skills"
+  >
+    <div [formGroupName]="i">
+      <input
+        class="skill-input"
+        type="text"
+        id="skill{{ i }}"
+        formControlName="skill"
+        placeholder="skill"
+      />
+      <button (click)="removeSkill(i)" class="delete">Remove</button>
+    </div>
+  </div>
+
+  <hr width="100%" />
+
+  <label for="workExperience">Work experience</label>
+  <button (click)="addExperience()" class="btn">Add Experience</button>
+  <div
+    *ngFor="let control of workExperience.controls; let i = index"
+    formArrayName="workExperience"
+  >
+    <div [formGroupName]="i" class="form-group">
+      <label for="place">Place</label>
+      <input
+        id="place"
+        type="text"
+        placeholder="Place"
+        formControlName="place"
+      />
+
+      <label for="position">Position</label>
+      <input
+        id="position"
+        type="text"
+        placeholder="Position"
+        formControlName="position"
+      />
+
+      <label for="years">Years</label>
+      <input
+        id="years"
+        type="text"
+        placeholder="Years"
+        formControlName="years"
+      />
+
+      <button (click)="removeExperience(i)" class="delete">Remove</button>
+    </div>
+  </div>
+
+  <button class="submit" (click)="submit()">Submit</button>
 </form>

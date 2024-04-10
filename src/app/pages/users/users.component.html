@@ -2,13 +2,13 @@
 
 <table>
   <tr>
-    <td>N</td>
-    <td>First name</td>
-    <td>Last Name</td>
-    <td>Birth date</td>
-    <td>Phone Number</td>
-    <td>Edit</td>
-    <td>Delete</td>
+    <th>N</th>
+    <th>First name</th>
+    <th>Last Name</th>
+    <th>Birth date</th>
+    <th>Phone Number</th>
+    <th>Edit</th>
+    <th>Delete</th>
   </tr>
 
   @for(user of users$ | async; track user.id){
@@ -18,12 +18,14 @@
     <td>{{ user.lastName }}</td>
     <td>{{ user.birthDate }}</td>
     <td>{{ user.phone }}</td>
-    <td>
+    <td class="btn-container">
       <button class="edit" [routerLink]="['/create', user.id]">Edit</button>
     </td>
-    <td><button class="delete" (click)="delete(user.id)">Delete</button></td>
+    <td class="btn-container">
+      <button class="delete" (click)="delete(user.id)">Delete</button>
+    </td>
   </tr>
   }
 </table>
 
-<button class="create" routerLink="/create">Send application</button>
+<button class="add" routerLink="/create">Send application</button>
